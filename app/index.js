@@ -36,8 +36,9 @@ function updateUsername(settings) {
   topLabel.text = `${command} now`;
   bottomLabel.text = command;
 }
-onSettingsChange(updateUsername);
 updateUsername();
+onSettingsChange(updateUsername);
+
 
 // Date and Time
 const timeValue = createFontFit('TIME-value');
