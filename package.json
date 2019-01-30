@@ -34,7 +34,7 @@
   },
   "name": "terminal",
   "description": "Terminal is a Fitbit clock face styled to match a terminal session in a Unix environment",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jdhartley/terminal-for-fitbit.git"
