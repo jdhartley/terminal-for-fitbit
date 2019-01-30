@@ -1,0 +1,22 @@
+svg {
+  fill: white;
+}
+
+#TIME-value {
+  fill: #00aa00;
+}
+#DATE-value {
+  fill: #00aaaa;
+}
+#BATT-value {
+  fill: #00aa00;
+}
+#STEP-value {
+  fill: #aa00aa;
+}
+#LVLS-value {
+  fill: #ffaa00;
+}
+#HRRT-value {
+  fill: #ff3333;
+}

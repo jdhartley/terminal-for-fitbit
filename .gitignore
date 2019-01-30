@@ -1,0 +1,15 @@
+# Build Directory
+/build
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# OS generated files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,215 @@
+<svg><g transform="translate(0, 30)">
+
+  <!-- Top command -->
+  <use id="TOP" x="5" y="0" href="#fitfont">
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+  </use>
+
+  <!-- Left Labels -->
+  <g fill="#aaaaaa">
+    <use id="TIME" y="35" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+
+    <use id="DATE" y="72" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+
+    <use id="BATT" y="109" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+
+    <use id="STEP" y="146" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+
+    <use id="LVLS" y="183" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+
+    <use id="HRRT" y="220" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+  </g>
+
+  <!-- Right Values -->
+  <g transform="translate(82, 0)">
+    <use id="TIME-value" y="35" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+
+    <use id="DATE-value" y="72" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+
+    <use id="BATT-value" y="109" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+
+    <use id="STEP-value" y="146" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+
+    <use id="LVLS-value" y="183" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+
+    <use id="HRRT-value" y="220" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+    </use>
+  </g>
+
+  <!-- Bottom command -->
+  <use id="BOTTOM" x="5" y="255" href="#fitfont">
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+  </use>
+
+</g></svg>

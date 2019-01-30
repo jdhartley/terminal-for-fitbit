@@ -1,0 +1,47 @@
+{
+  "fitbit": {
+    "appUUID": "df5cd9de-2135-4a94-a31a-7bd7d1e83c81",
+    "appType": "clockface",
+    "appDisplayName": "terminal",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [
+      "access_activity",
+      "access_heart_rate",
+      "access_user_profile"
+    ],
+    "buildTargets": [
+      "higgs",
+      "meson"
+    ],
+    "i18n": {
+      "en": {
+        "name": "terminal"
+      }
+    }
+  },
+  "devDependencies": {
+    "@fitbit/sdk": "^3.0.0"
+  },
+  "dependencies": {
+    "@fitbit/sdk-cli": "^1.5.0",
+    "fitfont": "^1.2.5",
+    "string.prototype.repeat": "^0.2.0"
+  },
+  "scripts": {
+    "build": "fitbit-build",
+    "font:generate": "npx fitfont-generate SourcecodePro-Medium.ttf 22 '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ @$:~%#.,-+?[]'"
+  },
+  "name": "terminal",
+  "description": "Terminal is a Fitbit clock face styled to match a terminal session in a Unix environment",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdhartley/terminal-for-fitbit.git"
+  },
+  "author": "JD Hartley <jdhrtl@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/jdhartley/terminal-for-fitbit/issues"
+  },
+  "homepage": "https://github.com/jdhartley/terminal-for-fitbit#readme"
+}
