@@ -22,7 +22,7 @@ export default function onHeartUpdate(callback) {
 }
 
 function getReading() {
-  if (false && hrm.timestamp === lastReading) {
+  if (hrm.timestamp === lastReading) {
     heartRate = '--';
   } else {
     heartRate = hrm.heartRate || '--';
