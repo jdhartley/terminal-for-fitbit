@@ -91,7 +91,7 @@ function getTimeValue(date) {
   const mins = zeroPad(date.getMinutes());
 
   if (preferences.clockDisplay === '12h') {
-    meridiem = hours > 12 ? ' PM' : ' AM';
+    meridiem = hours < 12 ? ' AM' : ' PM';
     hours = hours % 12 || 12;
   } else {
     hours = zeroPad(hours);
