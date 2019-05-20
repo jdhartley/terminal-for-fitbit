@@ -2,7 +2,6 @@ import document from 'document';
 import device from 'device';
 import { preferences } from 'user-settings';
 import { createFontFit, zeroPad } from '../common/utils';
-import 'string.prototype.repeat';
 
 import clock from 'clock';
 import { battery } from 'power';
