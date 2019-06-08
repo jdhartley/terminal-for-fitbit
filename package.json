@@ -21,10 +21,10 @@
     }
   },
   "devDependencies": {
-    "@fitbit/sdk": "^3.0.0"
+    "@fitbit/sdk": "^3.1.1"
   },
   "dependencies": {
-    "@fitbit/sdk-cli": "^1.5.0",
+    "@fitbit/sdk-cli": "^1.6.0",
     "fitfont": "^1.2.5",
     "string.prototype.repeat": "^0.2.0"
   },
@@ -39,6 +39,7 @@
     "type": "git",
     "url": "git+https://github.com/jdhartley/terminal-for-fitbit.git"
   },
+  "license": "Unlicense",
   "author": "JD Hartley <jdhrtl@gmail.com>",
   "bugs": {
     "url": "https://github.com/jdhartley/terminal-for-fitbit/issues"
