@@ -11,7 +11,10 @@ import onHeartUpdate from './heart';
 import onSettingsChange from './settings';
 
 // Labels
-const host = String(device.modelName).toLowerCase();
+const host = String(device.modelName)
+  .split(' ')[0]
+  .toLowerCase();
+
 const labels = {
   'TIME': '[TIME]',
   'DATE': '[DATE]',

@@ -11,6 +11,7 @@
       "access_user_profile"
     ],
     "buildTargets": [
+      "gemini",
       "higgs",
       "meson"
     ],
