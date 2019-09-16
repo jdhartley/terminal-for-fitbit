@@ -21,10 +21,10 @@
     }
   },
   "devDependencies": {
-    "@fitbit/sdk": "^3.1.1"
+    "@fitbit/sdk": "^3.1.2"
   },
   "dependencies": {
-    "@fitbit/sdk-cli": "^1.6.0",
+    "@fitbit/sdk-cli": "^1.6.3",
     "fitfont": "^1.2.5",
     "string.prototype.repeat": "^0.2.0"
   },
