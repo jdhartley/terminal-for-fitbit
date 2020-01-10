@@ -11,8 +11,10 @@
       "access_user_profile"
     ],
     "buildTargets": [
+      "gemini",
       "higgs",
-      "meson"
+      "meson",
+      "mira"
     ],
     "i18n": {
       "en": {
@@ -21,11 +23,11 @@
     }
   },
   "devDependencies": {
-    "@fitbit/sdk": "^3.1.2"
+    "@fitbit/sdk": "~4.0.0"
   },
   "dependencies": {
-    "@fitbit/sdk-cli": "^1.6.3",
-    "fitfont": "^1.2.5",
+    "@fitbit/sdk-cli": "^1.7.0",
+    "fitfont": "^1.3.1",
     "string.prototype.repeat": "^0.2.0"
   },
   "scripts": {
@@ -34,7 +36,7 @@
   },
   "name": "terminal",
   "description": "Terminal is a Fitbit clock face styled to match a terminal session in a Unix environment",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jdhartley/terminal-for-fitbit.git"

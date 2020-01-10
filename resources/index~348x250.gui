@@ -24,7 +24,7 @@
 
   <!-- Left Labels -->
   <g fill="#aaaaaa">
-    <use id="TIME" y="30" href="#fitfont">
+    <use id="label0" y="30" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -33,7 +33,7 @@
       <use href="#fitfont-char"/>
     </use>
 
-    <use id="DATE" y="60" href="#fitfont">
+    <use id="label1" y="60" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -42,7 +42,7 @@
       <use href="#fitfont-char"/>
     </use>
 
-    <use id="BATT" y="90" href="#fitfont">
+    <use id="label2" y="90" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -51,7 +51,7 @@
       <use href="#fitfont-char"/>
     </use>
 
-    <use id="STEP" y="120" href="#fitfont">
+    <use id="label3" y="120" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -60,7 +60,7 @@
       <use href="#fitfont-char"/>
     </use>
 
-    <use id="LVLS" y="150" href="#fitfont">
+    <use id="label4" y="150" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -69,7 +69,7 @@
       <use href="#fitfont-char"/>
     </use>
 
-    <use id="HRRT" y="180" href="#fitfont">
+    <use id="label5" y="180" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -81,7 +81,7 @@
 
   <!-- Right Values -->
   <g transform="translate(82, 0)">
-    <use id="TIME-value" y="30" href="#fitfont">
+    <use id="value0" y="30" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -99,7 +99,7 @@
       <use href="#fitfont-char"/>
     </use>
 
-    <use id="DATE-value" y="60" href="#fitfont">
+    <use id="value1" y="60" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -117,7 +117,7 @@
       <use href="#fitfont-char"/>
     </use>
 
-    <use id="BATT-value" y="90" href="#fitfont">
+    <use id="value2" y="90" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -136,7 +136,7 @@
       <use href="#fitfont-char"/>
     </use>
 
-    <use id="STEP-value" y="120" href="#fitfont">
+    <use id="value3" y="120" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -153,7 +153,7 @@
       <use href="#fitfont-char"/>
     </use>
 
-    <use id="LVLS-value" y="150" href="#fitfont">
+    <use id="value4" y="150" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -170,7 +170,7 @@
       <use href="#fitfont-char"/>
     </use>
 
-    <use id="HRRT-value" y="180" href="#fitfont">
+    <use id="value5" y="180" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>

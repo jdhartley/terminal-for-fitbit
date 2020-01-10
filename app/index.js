@@ -1,6 +1,6 @@
 import document from 'document';
 import device from 'device';
-import { preferences } from 'user-settings';
+import { preferences, units } from 'user-settings';
 import { createFontFit, zeroPad } from '../common/utils';
 import 'string.prototype.repeat';
 
@@ -10,23 +10,25 @@ import onActivityUpdate from './activity';
 import onHeartUpdate from './heart';
 import onSettingsChange from './settings';
 
+const IS_GEMINI = device.modelId === '38';
+
 // Labels
 const host = String(device.modelName)
   .split(' ')[0]
   .toLowerCase();
 
-const labels = {
-  'TIME': '[TIME]',
-  'DATE': '[DATE]',
-  'BATT': '[BATT]',
-  'STEP': '[STEP]',
-  'LVLS': '[LVLS]',
-  'HRRT': '[HRRT]',
-};
+const labels = [
+  'TIME',
+  'DATE',
+  'BATT',
+  'STEP',
+  IS_GEMINI ? 'DIST' : 'LVLS',
+  'HRRT',
+];
 
-Object.keys(labels).forEach((id) => {
-  const elem = createFontFit(id);
-  elem.text = labels[id];
+Object.keys(labels).forEach((id, index) => {
+  const elem = createFontFit('label' + index);
+  elem.text = '[' + labels[id] + ']';
 });
 
 // Username
@@ -44,8 +46,8 @@ onSettingsChange(updateUsername);
 
 
 // Date and Time
-const timeValue = createFontFit('TIME-value');
-const dateValue = createFontFit('DATE-value');
+const timeValue = createFontFit('value0');
+const dateValue = createFontFit('value1');
 clock.granularity = 'minutes';
 clock.addEventListener('tick', (evt) => {
   const date = evt.date;
@@ -54,7 +56,7 @@ clock.addEventListener('tick', (evt) => {
 });
 
 // Battery
-const battValueElem = document.getElementById('BATT-value');
+const battValueElem = document.getElementById('value2');
 const battValue = createFontFit(battValueElem);
 function onBatteryChange() {
   battValue.text = getBatteryValue();
@@ -64,16 +66,16 @@ battery.addEventListener('change', onBatteryChange);
 onBatteryChange();
 
 // Activity: Steps and Levels
-const stepValue = createFontFit('STEP-value');
-const lvlsValue = createFontFit('LVLS-value');
+const stepValue = createFontFit('value3');
+const value4 = createFontFit('value4');
 
-onActivityUpdate(({ steps, levels }) => {
-  stepValue.text = `${steps.pretty} step${steps.raw === 1 ? '' : 's'}`;
-  lvlsValue.text = `${levels.pretty} floor${levels.raw === 1 ? '' : 's'}`;
+onActivityUpdate(({ steps, levels, distance }) => {
+  stepValue.text = steps;
+  value4.text = IS_GEMINI ? distance : levels;
 });
 
 // Heart Rate
-const hrrtValue = createFontFit('HRRT-value');
+const hrrtValue = createFontFit('value5');
 
 onHeartUpdate(({ bpm, zone: rawZone }) => {
   if (bpm === '--') {

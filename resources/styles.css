@@ -2,21 +2,21 @@ svg {
   fill: white;
 }
 
-#TIME-value {
+#value0 {
   fill: #00aa00;
 }
-#DATE-value {
+#value1 {
   fill: #00aaaa;
 }
-#BATT-value {
+#value2 {
   fill: #00aa00;
 }
-#STEP-value {
+#value3 {
   fill: #aa00aa;
 }
-#LVLS-value {
+#value4 {
   fill: #ffaa00;
 }
-#HRRT-value {
+#value5 {
   fill: #ff3333;
 }

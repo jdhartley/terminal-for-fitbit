@@ -26,7 +26,11 @@ me.addEventListener('unload', saveSettings);
 // Load settings from filesystem
 function loadSettings() {
   try {
-    return fs.readFileSync(SETTINGS_FILE, SETTINGS_TYPE);
+    const settings = fs.readFileSync(SETTINGS_FILE, SETTINGS_TYPE);
+    if (typeof settings === 'undefined') {
+      return {};
+    }
+    return settings;
   } catch (ex) {
     return {};
   }
@@ -34,6 +38,11 @@ function loadSettings() {
 
 // Save settings to the filesystem
 function saveSettings() {
+  if (typeof settings === 'settings') {
+    console.log('Was going to save settings as undefined, exiting');
+    return;
+  }
+
   console.log('Saving settings to filesystem');
   fs.writeFileSync(SETTINGS_FILE, settings, SETTINGS_TYPE);
 }
