@@ -1,6 +1,8 @@
-import { me } from 'appbit';
-import * as fs from 'fs';
-import * as messaging from 'messaging';
+import { me as appbit } from 'appbit';
+import { readFileSync, writeFileSync } from 'fs';
+import { peerSocket } from 'messaging';
+import { getDefaultSettings } from '../common/settings';
+import { hasElevationGain } from './config';
 
 const SETTINGS_TYPE = 'cbor';
 const SETTINGS_FILE = 'settings.cbor';
@@ -15,22 +17,27 @@ export default function onSettingsChange(callback) {
 }
 
 // Received message containing settings data
-messaging.peerSocket.addEventListener('message', function(evt) {
-  settings[evt.data.key] = evt.data.value;
+peerSocket.addEventListener('message', function(event) {
+  const { type, data } = event.data;
+  if (type !== 'settings') {
+    return;
+  }
+
+  settings = data;
   settingsChangeCallback(settings);
-})
+});
 
 // Register for the unload event
-me.addEventListener('unload', saveSettings);
+appbit.addEventListener('unload', saveSettings);
 
 // Load settings from filesystem
 function loadSettings() {
   try {
-    const settings = fs.readFileSync(SETTINGS_FILE, SETTINGS_TYPE);
-    if (typeof settings === 'undefined') {
-      return {};
+    const savedSettings = readFileSync(SETTINGS_FILE, SETTINGS_TYPE);
+    if (typeof savedSettings === 'undefined') {
+      return getDefaultSettings({ hasElevationGain });
     }
-    return settings;
+    return savedSettings;
   } catch (ex) {
     return {};
   }
@@ -38,11 +45,11 @@ function loadSettings() {
 
 // Save settings to the filesystem
 function saveSettings() {
-  if (typeof settings === 'settings') {
+  if (typeof settings === 'undefined') {
     console.log('Was going to save settings as undefined, exiting');
     return;
   }
 
   console.log('Saving settings to filesystem');
-  fs.writeFileSync(SETTINGS_FILE, settings, SETTINGS_TYPE);
+  writeFileSync(SETTINGS_FILE, settings, SETTINGS_TYPE);
 }

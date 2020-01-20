@@ -1,25 +1,78 @@
-import * as messaging from 'messaging';
+import { peerSocket } from 'messaging';
 import { settingsStorage } from 'settings';
 
-function sendValue(key, val) {
-  if (val) {
-    sendSettingData({
-      key: key,
-      value: JSON.parse(val)
-    });
-  }
+import { getDefaultSettings } from '../common/settings.js';
+
+let hasElevationGain = settingsStorage.getItem('hasElevationGain');
+
+let settings = {};
+
+
+const getTextSetting = (settingName) => {
+    const defaultValue = getDefaultSettings({ hasElevationGain })[settingName];
+
+    const rawValue = settingsStorage.getItem(settingName);
+    const value = JSON.parse(rawValue);
+
+    if (!value) {
+        settingsStorage.setItem(settingName, JSON.stringify({ name: defaultValue }));
+        return defaultValue;
+    }
+    return value.name;
+};
+
+const getJsonSetting = (settingName) => {
+    const defaultValue = getDefaultSettings({ hasElevationGain })[settingName];
+
+    const rawValue = settingsStorage.getItem(settingName);
+    const value = JSON.parse(rawValue);
+
+    if (!value) {
+        settingsStorage.setItem(settingName, JSON.stringify(defaultValue));
+        return defaultValue;
+    }
+    return value;
+};
+
+const build = () => {
+    settings = {
+        username: getTextSetting('username'),
+        font: getJsonSetting('font'),
+        theme: getJsonSetting('theme'),
+        datalines: getJsonSetting('datalines'),
+    };
+};
+
+// Immediately build settings so we can use.
+build();
+
+
+function sendSettingData() {
+    if (peerSocket.readyState === peerSocket.OPEN) {
+        peerSocket.send({
+            type: 'settings',
+            data: settings,
+        });
+    } else {
+        console.log('No peerSocket connection');
+    }
 }
 
-function sendSettingData(data) {
-  if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
-    messaging.peerSocket.send(data);
-  } else {
-    console.log('No peerSocket connection');
-  }
-}
-
-settingsStorage.addEventListener('change', (evt) => {
-  if (evt.oldValue !== evt.newValue) {
-      sendValue(evt.key, evt.newValue);
-  }
+settingsStorage.addEventListener('change', (event) => {
+    build();
+    sendSettingData();
 });
+
+// when the socket opens, send the current app settings
+peerSocket.addEventListener('open', () => {
+    sendSettingData();
+});
+
+// Let's save if we have elevation gain or not.
+peerSocket.addEventListener('message', (event) => {
+    const { type, data } = event.data;
+    if (type === 'config') {
+        settingsStorage.setItem('hasElevationGain', data.hasElevationGain);
+        hasElevationGain = data.hasElevationGain;
+    }
+})

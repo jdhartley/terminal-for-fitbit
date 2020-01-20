@@ -1,22 +1,106 @@
-svg {
+svg.theme__DEFAULT {
+  viewport-fill: black;
   fill: white;
 }
-
-#value0 {
-  fill: #00aa00;
+#Labels.theme__DEFAULT {
+  fill: #aaaaaa;
 }
-#value1 {
+.theme__DEFAULT.color__cyan {
   fill: #00aaaa;
 }
-#value2 {
+.theme__DEFAULT.color__green {
   fill: #00aa00;
 }
-#value3 {
-  fill: #aa00aa;
-}
-#value4 {
+.theme__DEFAULT.color__orange {
   fill: #ffaa00;
 }
-#value5 {
+.theme__DEFAULT.color__purple {
+  fill: #aa00aa;
+}
+.theme__DEFAULT.color__red {
   fill: #ff3333;
+}
+
+
+svg.theme__DRACULA {
+  viewport-fill: #282a36;
+  fill: #f8f8f2;
+}
+#Labels.theme__DRACULA {
+  fill: #6272a4;
+}
+.theme__DRACULA.color__cyan {
+  fill: #8be9fd;
+}
+.theme__DRACULA.color__green {
+  fill: #50fa7b;
+}
+.theme__DRACULA.color__orange {
+  fill: #ffb86c;
+}
+.theme__DRACULA.color__purple {
+  fill: #bd93f9;
+}
+.theme__DRACULA.color__red {
+  fill: #ff5555;
+}
+
+
+svg.theme__QUIET_LIGHT {
+  viewport-fill: #f5f5f5;
+  fill: #333333;
+}
+
+#Labels.theme__QUIET_LIGHT {
+  fill: #93c6d6;
+}
+
+.theme__QUIET_LIGHT.color__cyan {
+  fill: #4b83cd;
+}
+
+.theme__QUIET_LIGHT.color__green {
+  fill: #448c27;
+}
+
+.theme__QUIET_LIGHT.color__orange {
+  fill: #ab6526;
+}
+
+.theme__QUIET_LIGHT.color__purple {
+  fill: #7a3e9d;
+}
+
+.theme__QUIET_LIGHT.color__red {
+  fill: #aa3731;
+}
+
+
+svg.theme__HOPSCOTCH {
+  viewport-fill: #322931;
+  fill: #d5d3d5;
+}
+
+#Labels.theme__HOPSCOTCH {
+  fill: #797379;
+}
+
+.theme__HOPSCOTCH.color__cyan {
+  fill: #1290bf;
+}
+
+.theme__HOPSCOTCH.color__green {
+  fill: #8fc13e;
+}
+
+.theme__HOPSCOTCH.color__orange {
+  fill: #fd8b19;
+}
+
+.theme__HOPSCOTCH.color__purple {
+  fill: #c85e7c;
+}
+
+.theme__HOPSCOTCH.color__red {
+  fill: #dd464c;
 }

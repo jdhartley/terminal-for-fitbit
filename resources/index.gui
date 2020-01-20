@@ -1,4 +1,4 @@
-<svg><g transform="translate(0, 30)">
+<svg id="Root"><g transform="translate(0, 30)">
 
   <!-- Top command -->
   <use id="TOP" x="5" y="0" href="#fitfont">
@@ -23,7 +23,7 @@
   </use>
 
   <!-- Left Labels -->
-  <g fill="#aaaaaa">
+  <g id="Labels">
     <use id="label0" y="35" href="#fitfont">
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -97,9 +97,15 @@
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
     </use>
 
     <use id="value1" y="72" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -134,9 +140,15 @@
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
     </use>
 
     <use id="value3" y="146" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
@@ -168,9 +180,15 @@
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
     </use>
 
     <use id="value5" y="220" href="#fitfont">
+      <use href="#fitfont-char"/>
+      <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
       <use href="#fitfont-char"/>
