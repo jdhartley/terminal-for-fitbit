@@ -18,10 +18,6 @@ import LVLS from './datalines/levels';
 import HRRT from './datalines/heartrate';
 import { swapClass } from './utils';
 
-// import { memory } from "system";
-// setInterval(() => {
-//     console.log("JS memory: " + memory.monitor.pressure + ' ' + memory.js.used + "/" + memory.js.total);
-// }, 1000);
 
 peerSocket.addEventListener('open', () => {
 	peerSocket.send({
@@ -40,7 +36,7 @@ const allDatalines = { TIME, DATE, BATT, STEP, DIST, LVLS, HRRT };
 
 
 onSettingsChange((settings) => {
-    const font = settings.font.values[0].value; // @TODO: handle migration if theme is undefined.
+    const font = settings.font.values[0].value;
 
     function text(id) {
         return new FitFont({ id, font });
@@ -66,7 +62,7 @@ onSettingsChange((settings) => {
     bottomLabel.text = command;
 
 
-    const theme = settings.theme.values[0].value; // @TODO: handle migration if theme is undefined.
+    const theme = settings.theme.values[0].value;
 
     [document.getElementById('Root'), document.getElementById('Labels')]
         .forEach((elem) => swapClass(elem, 'theme', theme));

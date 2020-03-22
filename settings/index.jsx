@@ -14,12 +14,6 @@ registerSettingsPage((props) => {
 
   return (
     <Page>
-      <Button
-        list
-        label="[DEBUG] Clear Settings Storage"
-        onClick={() => props.settingsStorage.clear()}
-      />
-
       <Section
         title="Appearance"
       >

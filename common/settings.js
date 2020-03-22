@@ -15,7 +15,7 @@ const getDatalineObjectByValue = (value) => {
 
 
 export const OPTIONS_THEMES = [
-    { name: 'Default', description: 'Dark', value: 'DEFAULT' }, // TODO: what to name this lol
+    { name: 'Default', description: 'Dark', value: 'DEFAULT' },
     { name: 'Dracula', description: 'Dark', value: 'DRACULA' },
     { name: 'Hopscotch', description: 'Dark', value: 'HOPSCOTCH' },
     { name: 'Solarized Dark', description: 'Dark', value: 'SOLARIZED_DARK' },
