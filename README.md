@@ -17,6 +17,16 @@ _Versa Lite shows distance instead of elevation gain._
 ![Customized Terminal clock face on Versa Lite](screenshots/Terminal-Gemini@jd.png)
 
 ## Changelog
+### Terminal v2.0.0 – 2020-03-22
+- A complete and total rewrite of Terminal, loaded with new features and customizability!
+- Add support for rearranging and changing up to 6 lines of content
+    - `TIME`, `DATE`, `BATT`, `STEP`, `DIST`, `LVLS` (on supported devices), and `HRRT`.
+- Add support for customizing fonts:
+    - Source Code Pro (original font from v1), Hack, Fira Code, Sudo, Roboto Mono, and Nova Mono.
+- Add support for themes:
+    - Default (original theme from v1), Dracula, Hopscotch, Solarized Dark, and Solarized Light.
+- Update @fitbit/sdk to ^4.1.0
+
 ### Terminal v1.1.0 – 2020-01-09
 - Add official support for Versa 2 (mira)
 - Add support for Versa Lite (gemini)
