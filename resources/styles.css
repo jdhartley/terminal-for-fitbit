@@ -1,22 +1,135 @@
-svg {
+svg.theme__DEFAULT {
+  viewport-fill: black;
   fill: white;
 }
-
-#value0 {
-  fill: #00aa00;
+#Labels.theme__DEFAULT {
+  fill: #aaaaaa;
 }
-#value1 {
+.theme__DEFAULT.color__cyan {
   fill: #00aaaa;
 }
-#value2 {
+.theme__DEFAULT.color__green {
   fill: #00aa00;
 }
-#value3 {
-  fill: #aa00aa;
-}
-#value4 {
+.theme__DEFAULT.color__orange {
   fill: #ffaa00;
 }
-#value5 {
+.theme__DEFAULT.color__purple {
+  fill: #aa00aa;
+}
+.theme__DEFAULT.color__red {
   fill: #ff3333;
+}
+
+
+svg.theme__DRACULA {
+  viewport-fill: #282a36;
+  fill: #f8f8f2;
+}
+#Labels.theme__DRACULA {
+  fill: #6272a4;
+}
+.theme__DRACULA.color__cyan {
+  fill: #8be9fd;
+}
+.theme__DRACULA.color__green {
+  fill: #50fa7b;
+}
+.theme__DRACULA.color__orange {
+  fill: #ffb86c;
+}
+.theme__DRACULA.color__purple {
+  fill: #bd93f9;
+}
+.theme__DRACULA.color__red {
+  fill: #ff5555;
+}
+
+
+svg.theme__HOPSCOTCH {
+  viewport-fill: #322931;
+  fill: #d5d3d5;
+}
+
+#Labels.theme__HOPSCOTCH {
+  fill: #797379;
+}
+
+.theme__HOPSCOTCH.color__cyan {
+  fill: #1290bf;
+}
+
+.theme__HOPSCOTCH.color__green {
+  fill: #8fc13e;
+}
+
+.theme__HOPSCOTCH.color__orange {
+  fill: #fd8b19;
+}
+
+.theme__HOPSCOTCH.color__purple {
+  fill: #c85e7c;
+}
+
+.theme__HOPSCOTCH.color__red {
+  fill: #dd464c;
+}
+
+svg.theme__SOLARIZED_DARK {
+  viewport-fill: #002b36;
+  fill: #657b83;
+}
+
+#Labels.theme__SOLARIZED_DARK {
+  fill: #839496;
+}
+
+.theme__SOLARIZED_DARK.color__cyan {
+  fill: #2aa198;
+}
+
+.theme__SOLARIZED_DARK.color__green {
+  fill: #859900;
+}
+
+.theme__SOLARIZED_DARK.color__orange {
+  fill: #cb4b16;
+}
+
+.theme__SOLARIZED_DARK.color__purple {
+  fill: #6c71c4;
+}
+
+.theme__SOLARIZED_DARK.color__red {
+  fill: #dc322f;
+}
+
+
+svg.theme__SOLARIZED_LIGHT {
+  viewport-fill: #eee8d5;
+  fill: #657b83;
+}
+
+#Labels.theme__SOLARIZED_LIGHT {
+  fill: #586e75;
+}
+
+.theme__SOLARIZED_LIGHT.color__cyan {
+  fill: #2aa198;
+}
+
+.theme__SOLARIZED_LIGHT.color__green {
+  fill: #859900;
+}
+
+.theme__SOLARIZED_LIGHT.color__orange {
+  fill: #cb4b16;
+}
+
+.theme__SOLARIZED_LIGHT.color__purple {
+  fill: #6c71c4;
+}
+
+.theme__SOLARIZED_LIGHT.color__red {
+  fill: #dc322f;
 }

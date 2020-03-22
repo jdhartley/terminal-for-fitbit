@@ -1,152 +1,101 @@
 import document from 'document';
 import device from 'device';
-import { preferences, units } from 'user-settings';
-import { createFontFit, zeroPad } from '../common/utils';
+import { FitFont } from 'fitfont';
+
 import 'string.prototype.repeat';
+import 'polyfill-array-includes';
 
-import clock from 'clock';
-import { battery } from 'power';
-import onActivityUpdate from './activity';
-import onHeartUpdate from './heart';
+import { peerSocket } from 'messaging';
 import onSettingsChange from './settings';
+import { hasElevationGain } from './config';
 
-const IS_GEMINI = device.modelId === '38';
+import TIME from './datalines/time';
+import DATE from './datalines/date';
+import BATT from './datalines/battery';
+import STEP from './datalines/steps';
+import DIST from './datalines/distance';
+import LVLS from './datalines/levels';
+import HRRT from './datalines/heartrate';
+import { swapClass } from './utils';
 
-// Labels
+
+peerSocket.addEventListener('open', () => {
+	peerSocket.send({
+		type: 'config',
+		data: { hasElevationGain },
+    });
+});
+
 const host = String(device.modelName)
-  .split(' ')[0]
-  .toLowerCase();
+    .split(' ')[0]
+    .toLowerCase();
 
-const labels = [
-  'TIME',
-  'DATE',
-  'BATT',
-  'STEP',
-  IS_GEMINI ? 'DIST' : 'LVLS',
-  'HRRT',
-];
 
-Object.keys(labels).forEach((id, index) => {
-  const elem = createFontFit('label' + index);
-  elem.text = '[' + labels[id] + ']';
+
+const allDatalines = { TIME, DATE, BATT, STEP, DIST, LVLS, HRRT };
+
+
+onSettingsChange((settings) => {
+    const font = settings.font.values[0].value;
+
+    function text(id) {
+        return new FitFont({ id, font });
+    }
+
+    const lines = [
+        { label: text('label0'), value: text('value0') },
+        { label: text('label1'), value: text('value1') },
+        { label: text('label2'), value: text('value2') },
+        { label: text('label3'), value: text('value3') },
+        { label: text('label4'), value: text('value4') },
+        { label: text('label5'), value: text('value5') },
+    ];
+
+    // Username
+    const topLabel = text('TOP');
+    const bottomLabel = text('BOTTOM');
+
+    const username = (settings && settings.username) || 'user';
+    const command = `${username}@${host}:~ $`;
+
+    topLabel.text = `${command} now`;
+    bottomLabel.text = command;
+
+
+    const theme = settings.theme.values[0].value;
+
+    [document.getElementById('Root'), document.getElementById('Labels')]
+        .forEach((elem) => swapClass(elem, 'theme', theme));
+
+    const datalines = settings.datalines || [];
+    const newDatalineNames = datalines.map((dp) => dp.value);
+
+    const linesToUpdate = lines.slice(0, datalines.length);
+    const linesToClear = lines.slice(datalines.length);
+
+    // Disable datalines that are no longer needed
+    Object.keys(allDatalines)
+        .filter((dp) => !newDatalineNames.includes(dp))
+        .forEach((dp) => allDatalines[dp].disable());
+
+    // Move datalines to their new row
+    linesToUpdate.forEach((row, index) => {
+        const key = newDatalineNames[index];
+        allDatalines[key].update(row.label, row.value, theme);
+    });
+
+    // Clear out text in now-empty rows
+    linesToClear.forEach((row) => {
+        // Note a bug in FitFont where setting to empty string does not work
+        // https://github.com/gregoiresage/fitfont/issues/3
+        row.label.text = ' ';
+        row.value.text = ' ';
+    });
+
+    // Position the bottom label based on how many lines we have
+    const isIonicScreen = device.screen.height === 250;
+    const startingPosition = isIonicScreen ? 210 : 255;
+    const lineSpacing = isIonicScreen ? 30 : 37;
+    const missingLines = 6 - datalines.length;
+    document.getElementById('BOTTOM').y = startingPosition - (lineSpacing * missingLines);
 });
-
-// Username
-const topLabel = createFontFit('TOP');
-const bottomLabel = createFontFit('BOTTOM');
-function updateUsername(settings) {
-  const username = settings && settings.username && settings.username.name || 'user';
-  const command = `${username}@${host}:~ $`;
-
-  topLabel.text = `${command} now`;
-  bottomLabel.text = command;
-}
-updateUsername();
-onSettingsChange(updateUsername);
-
-
-// Date and Time
-const timeValue = createFontFit('value0');
-const dateValue = createFontFit('value1');
-clock.granularity = 'minutes';
-clock.addEventListener('tick', (evt) => {
-  const date = evt.date;
-  timeValue.text = getTimeValue(date);
-  dateValue.text = getDateValue(date);
-});
-
-// Battery
-const battValueElem = document.getElementById('value2');
-const battValue = createFontFit(battValueElem);
-function onBatteryChange() {
-  battValue.text = getBatteryValue();
-  updateBatteryColor();
-}
-battery.addEventListener('change', onBatteryChange);
-onBatteryChange();
-
-// Activity: Steps and Levels
-const stepValue = createFontFit('value3');
-const value4 = createFontFit('value4');
-
-onActivityUpdate(({ steps, levels, distance }) => {
-  stepValue.text = steps;
-  value4.text = IS_GEMINI ? distance : levels;
-});
-
-// Heart Rate
-const hrrtValue = createFontFit('value5');
-
-onHeartUpdate(({ bpm, zone: rawZone }) => {
-  if (bpm === '--') {
-    hrrtValue.text = '--';
-    return;
-  }
-
-  let zone = '';
-  if (rawZone && rawZone !== 'out-of-range') {
-    zone = ` ${rawZone}`;
-  }
-  hrrtValue.text = `${bpm} bpm${zone}`;
-});
-
-function getTimeValue(date) {
-  let meridiem = '';
-  let hours = date.getHours();
-  const mins = zeroPad(date.getMinutes());
-
-  if (preferences.clockDisplay === '12h') {
-    meridiem = hours < 12 ? ' AM' : ' PM';
-    hours = hours % 12 || 12;
-  } else {
-    hours = zeroPad(hours);
-  }
-
-  const rawOffset = date.getTimezoneOffset();
-  const absoluteOffset = Math.abs(rawOffset);
-  const offset = [
-    (rawOffset < 0 ? '+' : '-'),
-    ('00' + Math.floor(absoluteOffset / 60)).slice(-2),
-    ':',
-    ('00' + (absoluteOffset % 60)).slice(-2),
-  ].join('');
-
-  return `${hours}:${mins}${meridiem} ${offset}`;
-}
-
-function getDateValue(date) {
-  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-  return [
-    days[date.getDay()],
-    months[date.getMonth()],
-    date.getDate(),
-    date.getFullYear(),
-  ].join(' ');
-}
-
-function getBatteryValue() {
-  const level = Math.floor(battery.chargeLevel);
-  const hashCount = Math.floor(level / 10);
-  const dotCount = 10 - hashCount;
-
-  const hashes = '#'.repeat(hashCount);
-  const dots = '.'.repeat(dotCount);
-  const spacer = level < 100 ? ' ' : '';
-
-  return `[${hashes}${dots}]${spacer}${level}%`;
-}
-
-function updateBatteryColor() {
-  const level = Math.floor(battery.chargeLevel);
-
-  let color = '#00aa00';
-  if (level <= 25) {
-    color = '#aa0000';
-  } else if (level <= 35) {
-    color = '#ffaa00';
-  }
-
-  battValueElem.style.fill = color;
-}
