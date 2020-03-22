@@ -66,6 +66,16 @@ registerSettingsPage((props) => {
           }
         />
       </Section>
+
+      <Section
+        title="Feature requests and bug reports"
+        description="Made with <3 by JD Hartley"
+      >
+        <Text><Text bold>Terminal</Text> is an open source clock face.</Text>
+        <Text>Please report bugs and request features on GitHub:&nbsp;
+          <Link source="https://github.com/jdhartley/terminal-for-fitbit">https://github.com/jdhartley/terminal-for-fitbit</Link>
+        </Text>
+      </Section>
     </Page>
   );
 });
