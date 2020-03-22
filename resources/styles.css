@@ -46,36 +46,6 @@ svg.theme__DRACULA {
 }
 
 
-svg.theme__QUIET_LIGHT {
-  viewport-fill: #f5f5f5;
-  fill: #333333;
-}
-
-#Labels.theme__QUIET_LIGHT {
-  fill: #93c6d6;
-}
-
-.theme__QUIET_LIGHT.color__cyan {
-  fill: #4b83cd;
-}
-
-.theme__QUIET_LIGHT.color__green {
-  fill: #448c27;
-}
-
-.theme__QUIET_LIGHT.color__orange {
-  fill: #ab6526;
-}
-
-.theme__QUIET_LIGHT.color__purple {
-  fill: #7a3e9d;
-}
-
-.theme__QUIET_LIGHT.color__red {
-  fill: #aa3731;
-}
-
-
 svg.theme__HOPSCOTCH {
   viewport-fill: #322931;
   fill: #d5d3d5;
@@ -103,4 +73,63 @@ svg.theme__HOPSCOTCH {
 
 .theme__HOPSCOTCH.color__red {
   fill: #dd464c;
+}
+
+svg.theme__SOLARIZED_DARK {
+  viewport-fill: #002b36;
+  fill: #657b83;
+}
+
+#Labels.theme__SOLARIZED_DARK {
+  fill: #839496;
+}
+
+.theme__SOLARIZED_DARK.color__cyan {
+  fill: #2aa198;
+}
+
+.theme__SOLARIZED_DARK.color__green {
+  fill: #859900;
+}
+
+.theme__SOLARIZED_DARK.color__orange {
+  fill: #cb4b16;
+}
+
+.theme__SOLARIZED_DARK.color__purple {
+  fill: #6c71c4;
+}
+
+.theme__SOLARIZED_DARK.color__red {
+  fill: #dc322f;
+}
+
+
+svg.theme__SOLARIZED_LIGHT {
+  viewport-fill: #eee8d5;
+  fill: #657b83;
+}
+
+#Labels.theme__SOLARIZED_LIGHT {
+  fill: #586e75;
+}
+
+.theme__SOLARIZED_LIGHT.color__cyan {
+  fill: #2aa198;
+}
+
+.theme__SOLARIZED_LIGHT.color__green {
+  fill: #859900;
+}
+
+.theme__SOLARIZED_LIGHT.color__orange {
+  fill: #cb4b16;
+}
+
+.theme__SOLARIZED_LIGHT.color__purple {
+  fill: #6c71c4;
+}
+
+.theme__SOLARIZED_LIGHT.color__red {
+  fill: #dc322f;
 }

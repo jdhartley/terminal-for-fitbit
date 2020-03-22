@@ -18,7 +18,8 @@ export const OPTIONS_THEMES = [
     { name: 'Default', description: 'Dark', value: 'DEFAULT' }, // TODO: what to name this lol
     { name: 'Dracula', description: 'Dark', value: 'DRACULA' },
     { name: 'Hopscotch', description: 'Dark', value: 'HOPSCOTCH' },
-    { name: 'Quiet Light', description: 'Light', value: 'QUIET_LIGHT' },
+    { name: 'Solarized Dark', description: 'Dark', value: 'SOLARIZED_DARK' },
+    { name: 'Solarized Light', description: 'Light', value: 'SOLARIZED_LIGHT' },
 ];
 
 export const OPTIONS_FONTS = [
