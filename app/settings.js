@@ -1,3 +1,4 @@
+import objectAssign from 'object-assign';
 import { me as appbit } from 'appbit';
 import { readFileSync, writeFileSync } from 'fs';
 import { peerSocket } from 'messaging';
@@ -32,15 +33,17 @@ appbit.addEventListener('unload', saveSettings);
 
 // Load settings from filesystem
 function loadSettings() {
+  let savedSettings = {};
   try {
-    const savedSettings = readFileSync(SETTINGS_FILE, SETTINGS_TYPE);
+    savedSettings = readFileSync(SETTINGS_FILE, SETTINGS_TYPE);
     if (typeof savedSettings === 'undefined') {
-      return getDefaultSettings({ hasElevationGain });
+      savedSettings = {};
     }
-    return savedSettings;
   } catch (ex) {
-    return {};
+    // Allow fallthrough
   }
+
+  return objectAssign(getDefaultSettings({ hasElevationGain }), savedSettings);
 }
 
 // Save settings to the filesystem
