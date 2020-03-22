@@ -44,7 +44,7 @@ registerSettingsPage((props) => {
               <TextImageRow
                 label={option.name}
                 sublabel={option.description}
-                icon="https://d33wubrfki0l68.cloudfront.net/db7b86d698061d9adb251fd1bc9de0af88e5f27d/c8b5f/images/watchface.png"
+                icon={`https://terminal.watch/settings/theme__${option.value}.png`}
               />
           }
         />
