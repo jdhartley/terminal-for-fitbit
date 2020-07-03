@@ -8,6 +8,7 @@
     "requestedPermissions": [
       "access_activity",
       "access_heart_rate",
+      "access_internet",
       "access_user_profile"
     ],
     "buildTargets": [
