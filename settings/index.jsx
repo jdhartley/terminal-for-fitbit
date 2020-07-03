@@ -52,7 +52,7 @@ registerSettingsPage((props) => {
           maxItems="6"
           addAction={
             safeJsonParse(props.settings.datalines).length >= 6
-            ? <Text italic>All rows are full</Text>
+            ? <Text italic>All rows are full. Tap "Edit" to remove a row, then tap "Done" to add.</Text>
             : <Select
                 label="Add Item"
                 options={OPTIONS_DATA_POINTS}
