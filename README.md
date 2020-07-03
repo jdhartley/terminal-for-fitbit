@@ -17,6 +17,12 @@ _Versa Lite shows distance instead of elevation gain._
 ![Customized Terminal clock face on Versa Lite](screenshots/Terminal-Gemini@jd.png)
 
 ## Changelog
+### Terminal v2.0.1 – 2020-07-03
+- Fix: Better support for the wider Ionic screen
+- Fix: Add `access_internet` permission to fix loading of Theme previews
+    - This permission will be used more in an upcoming version of Terminal
+- Misc: Better instructions on removing/adding data when your watch has 6 rows
+
 ### Terminal v2.0.0 – 2020-03-22
 - A complete and total rewrite of Terminal, loaded with new features and customizability!
 - Add support for rearranging and changing up to 6 lines of content
