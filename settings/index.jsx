@@ -11,6 +11,7 @@ const safeJsonParse = (json, fallback = []) => {
 registerSettingsPage((props) => {
   const hasElevationGain = props.settingsStorage.getItem('hasElevationGain') === 'true';
   const OPTIONS_DATA_POINTS = getPossibleDatalineOptions({ hasElevationGain });
+  const isLongUsername = (safeJsonParse(props.settings.username).name || '').length > 8;
 
   return (
     <Page>
@@ -23,6 +24,8 @@ registerSettingsPage((props) => {
           settingsKey="username"
           action="sudo usermod -l"
         />
+        {isLongUsername &&
+          <Text italic>Warning: usernames longer than 8 characters may cause other text to become clipped.</Text>}
         <Select
           label="Font"
           settingsKey="font"
