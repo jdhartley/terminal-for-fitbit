@@ -20,6 +20,11 @@
     <use href="#fitfont-char"/>
     <use href="#fitfont-char"/>
     <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
   </use>
 
   <!-- Left Labels -->
@@ -210,6 +215,11 @@
 
   <!-- Bottom command -->
   <use id="BOTTOM" x="5" y="255" href="#fitfont">
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
+    <use href="#fitfont-char"/>
     <use href="#fitfont-char"/>
     <use href="#fitfont-char"/>
     <use href="#fitfont-char"/>
