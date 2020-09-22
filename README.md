@@ -17,6 +17,10 @@ _Versa Lite shows distance instead of elevation gain._
 ![Customized Terminal clock face on Versa Lite](screenshots/Terminal-Gemini@jd.png)
 
 ## Changelog
+### Terminal v2.0.2 - 2020-09-21
+- Fix: Prevent clipping of usernames longer than 4 char (bug #14)
+- Misc: Add warning in settings if username is longer than 8 char
+
 ### Terminal v2.0.1 – 2020-07-03
 - Fix: Better support for the wider Ionic screen
 - Fix: Add `access_internet` permission to fix loading of Theme previews
