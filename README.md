@@ -2,6 +2,10 @@
 Inspired by [quarlow's amazing terminal watchface for Galaxy Gear](https://www.reddit.com/r/unixporn/comments/9ndo8o/oc_always_keep_some_terminal_with_you/), Terminal is a clock face styled to match a terminal session in a Unix environment.
 
 ## Screenshots
+### Sense, Versa 3
+![Terminal clock face on Versa 3](screenshots/Terminal-Atlas.png)
+![Customized Terminal clock face on Sense](screenshots/Terminal-Vulcan.png)
+
 ### Versa, Versa 2
 ![Terminal clock face on Versa](screenshots/Terminal-Versa.png)
 ![Customized Terminal clock face on Versa](screenshots/Terminal-Versa@jd.png)
@@ -11,7 +15,7 @@ Inspired by [quarlow's amazing terminal watchface for Galaxy Gear](https://www.r
 ![Customized Terminal clock face on Ionic](screenshots/Terminal-Ionic@jd.png)
 
 ### Versa Lite
-_Versa Lite shows distance instead of elevation gain._
+_Versa Lite supports distance instead of elevation gain._
 
 ![Terminal clock face on Versa Lite](screenshots/Terminal-Gemini.png)
 ![Customized Terminal clock face on Versa Lite](screenshots/Terminal-Gemini@jd.png)
