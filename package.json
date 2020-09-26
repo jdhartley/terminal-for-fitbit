@@ -12,10 +12,8 @@
       "access_user_profile"
     ],
     "buildTargets": [
-      "gemini",
-      "higgs",
-      "meson",
-      "mira"
+      "atlas",
+      "vulcan"
     ],
     "i18n": {
       "en": {
@@ -24,7 +22,7 @@
     }
   },
   "devDependencies": {
-    "@fitbit/sdk": "^4.2.1",
+    "@fitbit/sdk": "~5.0.0",
     "polyfill-array-includes": "^2.0.0"
   },
   "dependencies": {
