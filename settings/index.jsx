@@ -1,4 +1,9 @@
-import { getPossibleDatalineOptions, OPTIONS_THEMES, OPTIONS_FONTS } from '../common/settings.js';
+import {
+  getPossibleDatalineOptions,
+  OPTIONS_THEMES,
+  OPTIONS_FONTS,
+  OPTIONS_CURSORS,
+} from '../common/settings.js';
 
 const safeJsonParse = (json, fallback = []) => {
   try {
@@ -26,6 +31,7 @@ registerSettingsPage((props) => {
         />
         {isLongUsername &&
           <Text italic>Warning: usernames longer than 8 characters may cause other text to become clipped.</Text>}
+
         <Select
           label="Font"
           settingsKey="font"
@@ -44,6 +50,12 @@ registerSettingsPage((props) => {
                 icon={`https://terminal.watch/settings/theme__${option.value}.png`}
               />
           }
+        />
+
+        <Select
+          label="Cursor ​ 🆕✨" // This line intentionally contains ZWSP unicode characters for spacing.
+          settingsKey="cursor"
+          options={OPTIONS_CURSORS}
         />
       </Section>
 
@@ -70,8 +82,13 @@ registerSettingsPage((props) => {
       >
         <Text><Text bold>Terminal</Text> is an open source clock face.</Text>
         <Text>Please report bugs and request features on GitHub:&nbsp;
-          <Link source="https://github.com/jdhartley/terminal-for-fitbit">https://github.com/jdhartley/terminal-for-fitbit</Link>
+          <Link source="https://github.com/jdhartley/terminal-for-fitbit">github.com/jdhartley/terminal-for-fitbit</Link>
         </Text>
+
+        <Button
+          label="Reset settings to default"
+          onClick={() => props.settingsStorage.clear()}
+        />
       </Section>
     </Page>
   );

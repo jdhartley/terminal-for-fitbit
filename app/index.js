@@ -1,5 +1,6 @@
 import * as document from 'document';
 import device from 'device';
+import clock from 'clock';
 import { FitFont } from 'fitfont';
 
 import 'string.prototype.repeat';
@@ -18,6 +19,10 @@ import LVLS from './datalines/levels';
 import HRRT from './datalines/heartrate';
 import { swapClass } from './utils';
 
+// Set our clock granularity to seconds to update lines.
+// The `tick` event does not fire when the screen is off.
+clock.granularity = 'seconds';
+
 
 peerSocket.addEventListener('open', () => {
 	peerSocket.send({
@@ -34,9 +39,45 @@ const host = String(device.modelName)
 
 const allDatalines = { TIME, DATE, BATT, STEP, DIST, LVLS, HRRT };
 
+const updatePromptLine = (function() {
+    let bottomLabel;
+    let command;
+    let cursor;
+
+    const updateValue = () => {
+        if (!bottomLabel) {
+            return;
+        }
+
+        if (!cursor || cursor === 'none') {
+            bottomLabel.text = command;
+            return;
+        }
+
+        bottomLabel.text = `${command} ${cursor}`;
+
+        setTimeout(() => {
+            if (bottomLabel) bottomLabel.text = command;
+        }, 500);
+    };
+
+    return (...args) => {
+        [bottomLabel, command, cursor] = args;
+
+        clock.removeEventListener('tick', updateValue);
+
+        if (!cursor || cursor === 'none') {
+            updateValue();
+            return;
+        }
+
+        clock.addEventListener('tick', updateValue);
+    };
+})();
 
 onSettingsChange((settings) => {
     const font = settings.font.values[0].value;
+    const cursor = settings.cursor.values[0].value;
 
     function text(id) {
         return new FitFont({ id, font });
@@ -55,12 +96,12 @@ onSettingsChange((settings) => {
     const topLabel = text('TOP');
     const bottomLabel = text('BOTTOM');
 
-    const username = (settings && settings.username) || 'user';
+    const username = settings.username || 'user';
     const command = `${username}@${host}:~ $`;
 
     topLabel.text = `${command} now`;
-    bottomLabel.text = command;
 
+    updatePromptLine(bottomLabel, command, cursor);
 
     const theme = settings.theme.values[0].value;
 

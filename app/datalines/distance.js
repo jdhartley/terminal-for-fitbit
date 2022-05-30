@@ -6,8 +6,6 @@ import { units } from 'user-settings';
 import Dataline from './Dataline';
 import { swapClass } from '../utils';
 
-clock.granularity = 'seconds';
-
 export default new Dataline({
     name: 'DIST',
     checkPermissions() {

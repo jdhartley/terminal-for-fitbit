@@ -31,6 +31,14 @@ export const OPTIONS_FONTS = [
     { name: 'Nova Mono', value: 'NovaMono_24' },
 ];
 
+export const OPTIONS_CURSORS = [
+    { name: 'None (disable cursor blinking)', value: 'none' },
+    { name: 'Block', value: '█' },
+    { name: 'I-Beam', value: '▏' },
+    { name: 'Underline', value: '▁' },
+];
+
+
 export const getPossibleDatalineOptions = ({ hasElevationGain = false } = {}) => {
     return Object.keys(DATA_LINE_MAP)
         .filter(key =>  key !== 'LVLS' || hasElevationGain)
@@ -44,6 +52,7 @@ export const getDefaultSettings = ({ hasElevationGain = false } = {}) => {
         username: 'user',
         font: { values: [OPTIONS_FONTS[0]], selected: [0] },
         theme: { values: [OPTIONS_THEMES[0]], selected: [0] },
+        cursor: { values: [OPTIONS_CURSORS[0]], selected: [0] },
         datalines: defaultDatalines.map(getDatalineObjectByValue),
     };
 };
