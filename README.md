@@ -22,8 +22,8 @@ _Versa Lite supports distance instead of elevation gain._
 
 ## Changelog
 ### Terminal v2.2.0 - 2022-05-29
-- Add a new "Cursor" option
-    - Cursors flash or blink every second
+- Add a new "Cursor" option to settings
+    - Cursors blink every second
     - Choose between no cursor (default), full block, half block, i-beam, or underline.
 - Misc: Add a "reset settings to default" button
 - Update @fitbit/sdk to ^6.1.0
