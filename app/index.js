@@ -39,41 +39,8 @@ const host = String(device.modelName)
 
 const allDatalines = { TIME, DATE, BATT, STEP, DIST, LVLS, HRRT };
 
-const updatePromptLine = (function() {
-    let bottomLabel;
-    let command;
-    let cursor;
+let updatePromptLine;
 
-    const updateValue = () => {
-        if (!bottomLabel) {
-            return;
-        }
-
-        if (!cursor || cursor === 'none') {
-            bottomLabel.text = command;
-            return;
-        }
-
-        bottomLabel.text = `${command} ${cursor}`;
-
-        setTimeout(() => {
-            if (bottomLabel) bottomLabel.text = command;
-        }, 500);
-    };
-
-    return (...args) => {
-        [bottomLabel, command, cursor] = args;
-
-        clock.removeEventListener('tick', updateValue);
-
-        if (!cursor || cursor === 'none') {
-            updateValue();
-            return;
-        }
-
-        clock.addEventListener('tick', updateValue);
-    };
-})();
 
 onSettingsChange((settings) => {
     const font = settings.font.values[0].value;
@@ -100,8 +67,31 @@ onSettingsChange((settings) => {
     const command = `${username}@${host}:~ $`;
 
     topLabel.text = `${command} now`;
+    bottomLabel.text = `${command} `;
 
-    updatePromptLine(bottomLabel, command, cursor);
+    // Blinking Prompt
+    const blinker = document.getElementById('BLINKER');
+    const blinkerLabel = new FitFont({ id: blinker, font: 'Source_Code_Pro_22' });
+    blinker.x = 5 + bottomLabel.width;
+
+    if (updatePromptLine) {
+        clock.removeEventListener('tick', updatePromptLine);
+    }
+
+    if (!cursor || cursor === 'none') {
+        blinkerLabel.text = ' ';
+    } else {
+        clock.addEventListener('tick', updatePromptLine = () => {
+            if (!bottomLabel || !blinkerLabel) return;
+
+            blinkerLabel.text = cursor;
+
+            setTimeout(() => {
+                if (blinkerLabel) blinkerLabel.text = ' ';
+            }, 500);
+        });
+    }
+
 
     const theme = settings.theme.values[0].value;
 

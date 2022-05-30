@@ -33,7 +33,8 @@ export const OPTIONS_FONTS = [
 
 export const OPTIONS_CURSORS = [
     { name: 'None (disable cursor blinking)', value: 'none' },
-    { name: 'Block', value: '█' },
+    { name: 'Full block', value: '█' },
+    { name: 'Half block', value: '▌' },
     { name: 'I-Beam', value: '▏' },
     { name: 'Underline', value: '▁' },
 ];
