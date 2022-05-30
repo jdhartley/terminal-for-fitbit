@@ -37,7 +37,7 @@
   },
   "scripts": {
     "build": "fitbit-build",
-    "font:generate": "npx fitfont-generate NovaMono-Regular.ttf 24 '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ @$:~%#.,-+!?[]'"
+    "font:generate": "npx fitfont-generate Source_Code_Pro.ttf 22 '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ @$:~%#.,-+!?[]█▁▌▏'"
   },
   "name": "terminal",
   "description": "Terminal is a Fitbit clock face styled to match a terminal session in a Unix environment",

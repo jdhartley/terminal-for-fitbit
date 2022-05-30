@@ -3,8 +3,6 @@ import clock from 'clock';
 import Dataline from './Dataline';
 import { swapClass } from '../utils';
 
-clock.granularity = 'minutes';
-
 export default new Dataline({
     name: 'DATE',
     updateValue(event = {}) {

@@ -21,6 +21,13 @@ _Versa Lite supports distance instead of elevation gain._
 ![Customized Terminal clock face on Versa Lite](screenshots/Terminal-Gemini@jd.png)
 
 ## Changelog
+### Terminal v2.2.0 - 2022-05-29
+- Add a new "Cursor" option to settings
+    - Cursors blink every second
+    - Choose between no cursor (default), full block, half block, i-beam, or underline.
+- Misc: Add a "reset settings to default" button
+- Update @fitbit/sdk to ^6.1.0
+
 ### Terminal v2.1.0 - 2020-09-25
 - Add support for Fitbit Sense and Versa 3
 
