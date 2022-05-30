@@ -1,4 +1,4 @@
-import document from 'document';
+import * as document from 'document';
 import device from 'device';
 import { FitFont } from 'fitfont';
 

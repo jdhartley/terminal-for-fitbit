@@ -22,7 +22,7 @@
     }
   },
   "devDependencies": {
-    "@fitbit/sdk": "~5.0.0",
+    "@fitbit/sdk": "~6.1.0",
     "polyfill-array-includes": "^2.0.0"
   },
   "dependencies": {
@@ -30,6 +30,10 @@
     "fitfont": "^1.3.3",
     "object-assign": "^4.1.1",
     "string.prototype.repeat": "^0.2.0"
+  },
+  "overrides": {
+    "keytar": "^7.7.0",
+    "node-gyp": "^9.0.0"
   },
   "scripts": {
     "build": "fitbit-build",
