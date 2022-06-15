@@ -128,5 +128,7 @@ onSettingsChange((settings) => {
     const startingPosition = isIonicScreen ? 210 : 255;
     const lineSpacing = isIonicScreen ? 30 : 37;
     const missingLines = 6 - datalines.length;
-    document.getElementById('BOTTOM').y = startingPosition - (lineSpacing * missingLines);
+    const y = startingPosition - (lineSpacing * missingLines);
+    document.getElementById('BOTTOM').y = y;
+    document.getElementById('BLINKER').y = y;
 });

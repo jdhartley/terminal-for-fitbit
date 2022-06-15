@@ -21,6 +21,10 @@ _Versa Lite supports distance instead of elevation gain._
 ![Customized Terminal clock face on Versa Lite](screenshots/Terminal-Gemini@jd.png)
 
 ## Changelog
+
+### Terminal v2.2.1 - 2022-06-14
+- Fix cursor positioning when there are fewer than 5 data lines
+
 ### Terminal v2.2.0 - 2022-05-29
 - Add a new "Cursor" option to settings
     - Cursors blink every second
