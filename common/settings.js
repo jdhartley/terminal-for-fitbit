@@ -6,6 +6,7 @@ const DATA_LINE_MAP = {
     LVLS: 'Elevation gain',
     DIST: 'Distance',
     HRRT: 'Heart rate',
+    CALS: 'Calories burned',
 };
 
 const getDatalineObjectByValue = (value) => {

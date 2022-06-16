@@ -1,21 +1,20 @@
 import { me } from 'appbit';
 import clock from 'clock';
-import { today } from 'user-activity';
+import { today, goals } from 'user-activity';
 
 import Dataline from './Dataline';
 import { swapClass, numberFormat } from '../utils';
 
 export default new Dataline({
-    name: 'STEP',
+    name: 'CALS',
     checkPermissions() {
         return me.permissions.granted('access_activity');
     },
     updateValue() {
-        const raw = today.adjusted.steps || 0;
-        const unit = `step${raw === 1 ? '' : 's'}`;
+        const raw = today.adjusted.calories || 0;
 
-        this.valueRef.text = `${numberFormat(raw)} ${unit}`;
-        swapClass(this.valueRef.root, 'color', 'purple');
+        this.valueRef.text = `${numberFormat(raw)} Cal`;
+        swapClass(this.valueRef.root, 'color', 'cyan');
     },
     start() {
         clock.addEventListener('tick', this.updateValue);
