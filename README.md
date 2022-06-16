@@ -22,8 +22,13 @@ _Versa Lite supports distance instead of elevation gain._
 
 ## Changelog
 
+### Terminal v2.3.0 - 2022-06-15
+- Add two new data lines: Calories burned and Activity Zone Minutes
+- While charging, update BATT line to show CHRG state
+- Fix: update HRRT data line to support custom heart rate zones (bug #19)
+
 ### Terminal v2.2.1 - 2022-06-14
-- Fix cursor positioning when there are fewer than 5 data lines
+- Fix cursor positioning when there are fewer than 5 data lines (bug #39)
 
 ### Terminal v2.2.0 - 2022-05-29
 - Add a new "Cursor" option to settings
