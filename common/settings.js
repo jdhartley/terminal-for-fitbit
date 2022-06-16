@@ -6,7 +6,7 @@ const DATA_LINE_MAP = {
     LVLS: 'Elevation gain',
     DIST: 'Distance',
     HRRT: 'Heart rate',
-    AZMS: 'Active zone minutes',
+    AZMS: 'Active Zone Minutes',
 };
 
 const getDatalineObjectByValue = (value) => {
