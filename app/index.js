@@ -17,6 +17,7 @@ import STEP from './datalines/steps';
 import DIST from './datalines/distance';
 import LVLS from './datalines/levels';
 import HRRT from './datalines/heartrate';
+import CALS from './datalines/calories';
 import AZMS from './datalines/azms';
 import { swapClass } from './utils';
 
@@ -38,7 +39,7 @@ const host = String(device.modelName)
 
 
 
-const allDatalines = { TIME, DATE, BATT, STEP, DIST, LVLS, HRRT, AZMS };
+const allDatalines = { TIME, DATE, BATT, STEP, DIST, LVLS, HRRT, CALS, AZMS };
 
 let updatePromptLine;
 

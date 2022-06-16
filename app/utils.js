@@ -20,3 +20,7 @@ export function swapClass(root, namespace, className) {
 
     root.class = newClasses.join(' ');
 }
+
+export function numberFormat(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
