@@ -1,5 +1,6 @@
 import document from 'document';
 import device from 'device';
+import clock from 'clock';
 import { FitFont } from 'fitfont';
 
 import 'string.prototype.repeat';
@@ -16,7 +17,12 @@ import STEP from './datalines/steps';
 import DIST from './datalines/distance';
 import LVLS from './datalines/levels';
 import HRRT from './datalines/heartrate';
+import AZMS from './datalines/azms';
 import { swapClass } from './utils';
+
+// Set our clock granularity to seconds to update lines.
+// The `tick` event does not fire when the screen is off.
+clock.granularity = 'seconds';
 
 
 peerSocket.addEventListener('open', () => {
@@ -32,11 +38,14 @@ const host = String(device.modelName)
 
 
 
-const allDatalines = { TIME, DATE, BATT, STEP, DIST, LVLS, HRRT };
+const allDatalines = { TIME, DATE, BATT, STEP, DIST, LVLS, HRRT, AZMS };
+
+let updatePromptLine;
 
 
 onSettingsChange((settings) => {
     const font = settings.font.values[0].value;
+    const cursor = settings.cursor.values[0].value;
 
     function text(id) {
         return new FitFont({ id, font });
@@ -55,11 +64,34 @@ onSettingsChange((settings) => {
     const topLabel = text('TOP');
     const bottomLabel = text('BOTTOM');
 
-    const username = (settings && settings.username) || 'user';
+    const username = settings.username || 'user';
     const command = `${username}@${host}:~ $`;
 
     topLabel.text = `${command} now`;
-    bottomLabel.text = command;
+    bottomLabel.text = `${command} `;
+
+    // Blinking Prompt
+    const blinker = document.getElementById('BLINKER');
+    const blinkerLabel = new FitFont({ id: blinker, font: 'Source_Code_Pro_22' });
+    blinker.x = 5 + bottomLabel.width;
+
+    if (updatePromptLine) {
+        clock.removeEventListener('tick', updatePromptLine);
+    }
+
+    if (!cursor || cursor === 'none') {
+        blinkerLabel.text = ' ';
+    } else {
+        clock.addEventListener('tick', updatePromptLine = () => {
+            if (!bottomLabel || !blinkerLabel) return;
+
+            blinkerLabel.text = cursor;
+
+            setTimeout(() => {
+                if (blinkerLabel) blinkerLabel.text = ' ';
+            }, 500);
+        });
+    }
 
 
     const theme = settings.theme.values[0].value;
@@ -97,5 +129,7 @@ onSettingsChange((settings) => {
     const startingPosition = isIonicScreen ? 210 : 255;
     const lineSpacing = isIonicScreen ? 30 : 37;
     const missingLines = 6 - datalines.length;
-    document.getElementById('BOTTOM').y = startingPosition - (lineSpacing * missingLines);
+    const y = startingPosition - (lineSpacing * missingLines);
+    document.getElementById('BOTTOM').y = y;
+    document.getElementById('BLINKER').y = y;
 });

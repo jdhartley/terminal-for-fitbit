@@ -5,8 +5,6 @@ import { today } from 'user-activity';
 import Dataline from './Dataline';
 import { swapClass } from '../utils';
 
-clock.granularity = 'seconds';
-
 export default new Dataline({
     name: 'LVLS',
     checkPermissions() {

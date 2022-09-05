@@ -33,6 +33,10 @@
     "object-assign": "^4.1.1",
     "string.prototype.repeat": "^0.2.0"
   },
+  "overrides": {
+    "keytar": "^7.7.0",
+    "node-gyp": "^9.0.0"
+  },
   "scripts": {
     "build": "fitbit-build",
     "font:generate": "npx fitfont-generate NovaMono-Regular.ttf 24 '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ @$:~%#.,-+!?[]'"

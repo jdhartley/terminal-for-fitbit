@@ -6,16 +6,16 @@ import Dataline from './Dataline';
 import { swapClass } from '../utils';
 
 export default new Dataline({
-    name: 'STEP',
+    name: 'AZMS',
     checkPermissions() {
         return me.permissions.granted('access_activity');
     },
     updateValue() {
-        const raw = today.adjusted.steps || 0;
-        const unit = `step${raw === 1 ? '' : 's'}`;
+        const raw = today.adjusted.activeZoneMinutes.total || 0;
+        const unit = `minute${raw === 1 ? '' : 's'}`;
 
-        this.valueRef.text = `${raw > 999 ? Math.floor(raw/1000) + ',' + ('00'+(raw%1000)).slice(-3) : raw} ${unit}`;
-        swapClass(this.valueRef.root, 'color', 'purple');
+        this.valueRef.text = `${raw} ${unit}`;
+        swapClass(this.valueRef.root, 'color', 'magenta');
     },
     start() {
         clock.addEventListener('tick', this.updateValue);

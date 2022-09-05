@@ -6,6 +6,17 @@ import { user } from 'user-profile';
 import Dataline from './Dataline';
 import { swapClass } from '../utils';
 
+const ZONES = {
+    'out-of-range': '',
+    'fat-burn': 'fat-burn',
+    'cardio': 'cardio',
+    'peak': 'peak',
+
+    'below-custom': '',
+    'custom': 'in zone',
+    'above-custom': 'gt zone',
+};
+
 export default new Dataline({
     name: 'HRRT',
     checkPermissions() {
@@ -21,10 +32,9 @@ export default new Dataline({
 
         this.lastReadingTimestamp = this.hrm.timestamp;
 
-        const rawZone = user.heartRateZone(bpm);
-        const zone = (rawZone && rawZone !== 'out-of-range') ? ` ${rawZone}` : '';
+        const zone = ZONES[user.heartRateZone(bpm)] || '';
 
-        this.valueRef.text = `${bpm} bpm${zone}`;
+        this.valueRef.text = `${bpm} bpm ${zone}`;
         swapClass(this.valueRef.root, 'color', 'red');
     },
     start() {

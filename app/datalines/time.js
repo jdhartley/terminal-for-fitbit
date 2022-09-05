@@ -4,8 +4,6 @@ import { preferences } from 'user-settings';
 import Dataline from './Dataline';
 import { zeroPad, swapClass } from '../utils';
 
-clock.granularity = 'minutes';
-
 export default new Dataline({
     name: 'TIME',
     updateValue(event = {}) {
