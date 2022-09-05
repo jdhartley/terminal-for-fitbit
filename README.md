@@ -17,6 +17,16 @@ _Versa Lite shows distance instead of elevation gain._
 ![Customized Terminal clock face on Versa Lite](screenshots/Terminal-Gemini@jd.png)
 
 ## Changelog
+### Terminal v2.3.0-legacy — 2022-09-05
+_Backports sdk5+ features into sdk4 branch_
+- Add new data line: Activity Zone Minutes
+- While charging, update BATT line to show CHRG state
+- Fix: update HRRT data line to support custom heart rate zones (bug #19)
+- Add a new "Cursor" option to settings
+  - Cursors blink every second
+  - Choose between no cursor (default), full block, half block, i-beam, or underline.
+- Misc: Add a "reset settings to default" button
+
 ### Terminal v2.0.2 - 2020-09-21
 - Fix: Prevent clipping of usernames longer than 4 char (bug #14)
 - Misc: Add warning in settings if username is longer than 8 char
