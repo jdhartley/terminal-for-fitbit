@@ -240,7 +240,7 @@
     <use href="#fitfont-char"/>
   </use>
 
-    <!-- Blinker -->
+  <!-- Blinker -->
   <use id="BLINKER" x="5" y="255" href="#fitfont">
     <use href="#fitfont-char"/>
   </use>
