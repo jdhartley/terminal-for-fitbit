@@ -17,6 +17,8 @@ _Versa Lite shows distance instead of elevation gain._
 ![Customized Terminal clock face on Versa Lite](screenshots/Terminal-Gemini@jd.png)
 
 ## Changelog
+### Terminal v2.3.1-legacy — 2022-12-27
+- Fix: Fitbit Ionic no longer errors when rendering the clock face
 ### Terminal v2.3.0-legacy — 2022-09-05
 _Backports sdk5+ features into sdk4 branch_
 - Add new data line: Activity Zone Minutes
