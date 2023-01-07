@@ -87,7 +87,11 @@ registerSettingsPage((props) => {
 
         <Button
           label="Reset settings to default"
-          onClick={() => props.settingsStorage.clear()}
+          onClick={() => {
+            const hasElevationGain = props.settingsStorage.getItem('hasElevationGain');
+            props.settingsStorage.clear();
+            props.settingsStorage.setItem('hasElevationGain', hasElevationGain);
+          }}
         />
       </Section>
     </Page>

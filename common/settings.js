@@ -43,12 +43,12 @@ export const OPTIONS_CURSORS = [
 
 export const getPossibleDatalineOptions = ({ hasElevationGain = false } = {}) => {
     return Object.keys(DATA_LINE_MAP)
-        .filter(key =>  key !== 'LVLS' || hasElevationGain)
+        .filter(key => key !== 'LVLS' || hasElevationGain)
         .map(getDatalineObjectByValue);
 };
 
 export const getDefaultSettings = ({ hasElevationGain = false } = {}) => {
-    const defaultDatalines = ['TIME', 'DATE', 'BATT', 'STEP', hasElevationGain ? 'DIST' : 'LVLS', 'HRRT'];
+    const defaultDatalines = ['TIME', 'DATE', 'BATT', 'STEP', hasElevationGain ? 'LVLS' : 'DIST', 'HRRT'];
 
     return {
         username: 'user',

@@ -3,12 +3,11 @@ import { settingsStorage } from 'settings';
 
 import { getDefaultSettings } from '../common/settings.js';
 
-let hasElevationGain = settingsStorage.getItem('hasElevationGain');
-
 let settings = {};
 
 
 const getTextSetting = (settingName) => {
+    const hasElevationGain = settingsStorage.getItem('hasElevationGain') === 'true';
     const defaultValue = getDefaultSettings({ hasElevationGain })[settingName];
 
     const rawValue = settingsStorage.getItem(settingName);
@@ -22,6 +21,7 @@ const getTextSetting = (settingName) => {
 };
 
 const getJsonSetting = (settingName) => {
+    const hasElevationGain = settingsStorage.getItem('hasElevationGain') === 'true';
     const defaultValue = getDefaultSettings({ hasElevationGain })[settingName];
 
     const rawValue = settingsStorage.getItem(settingName);
@@ -74,6 +74,5 @@ peerSocket.addEventListener('message', (event) => {
     const { type, data } = event.data;
     if (type === 'config') {
         settingsStorage.setItem('hasElevationGain', data.hasElevationGain);
-        hasElevationGain = data.hasElevationGain;
     }
 })
