@@ -22,6 +22,12 @@ _Versa Lite supports distance instead of elevation gain._
 
 ## Changelog
 
+### Terminal 2.4.0 - 2023-02-15
+- Add a new data line: Time with seconds
+- Add a new "Prompt" option to settings
+    - Allow customizing the shell prompt character from the default bash ($)
+    - Switch to a csh/zsh "#", or enter LEET MODE and see "%" like the superuser you are!
+
 ### Terminal v2.3.0 - 2022-06-15
 - Add two new data lines: Calories burned and Activity Zone Minutes
 - While charging, update BATT line to show CHRG state
