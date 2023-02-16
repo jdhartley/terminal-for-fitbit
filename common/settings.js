@@ -1,5 +1,6 @@
 const DATA_LINE_MAP = {
     TIME: 'Time',
+    TIMESECS: 'Time with seconds',
     DATE: 'Date',
     BATT: 'Battery',
     STEP: 'Step count',

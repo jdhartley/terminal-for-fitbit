@@ -1,12 +1,17 @@
 import { swapClass } from '../utils';
 
-export default function Dataline({ name, updateValue, start, stop, checkPermissions }) {
+export default function Dataline({ name, updateValue, start, stop, checkPermissions, ...rest }) {
     this.isActive = false;
 
     this.name = name;
     this.updateValue = updateValue.bind(this);
     this.start = start.bind(this);
     this.stop = stop.bind(this);
+
+    // Promote other properties to the instance
+    Object.keys(rest).forEach((key) => {
+        this[key] = rest[key];
+    });
 
     if (checkPermissions) {
         this.checkPermissions = checkPermissions.bind(this);
