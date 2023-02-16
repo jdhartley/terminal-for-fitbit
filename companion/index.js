@@ -39,6 +39,7 @@ const build = () => {
         username: getTextSetting('username'),
         font: getJsonSetting('font'),
         theme: getJsonSetting('theme'),
+        prompt: getJsonSetting('prompt'),
         cursor: getJsonSetting('cursor'),
         datalines: getJsonSetting('datalines'),
     };
