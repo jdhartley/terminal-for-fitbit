@@ -10,7 +10,7 @@ import { peerSocket } from 'messaging';
 import onSettingsChange from './settings';
 import { hasElevationGain } from './config';
 
-import TIME from './datalines/time';
+import timeFactory from './datalines/time';
 import DATE from './datalines/date';
 import BATT from './datalines/battery';
 import STEP from './datalines/steps';
@@ -38,8 +38,9 @@ const host = String(device.modelName)
     .toLowerCase();
 
 
-
-const allDatalines = { TIME, DATE, BATT, STEP, DIST, LVLS, HRRT, CALS, AZMS };
+const TIME = timeFactory({ showSeconds: false });
+const TIMESECS = timeFactory({ showSeconds: true });
+const allDatalines = { TIME, TIMESECS, DATE, BATT, STEP, DIST, LVLS, HRRT, CALS, AZMS };
 
 let updatePromptLine;
 
