@@ -2,6 +2,7 @@ import {
   getPossibleDatalineOptions,
   OPTIONS_THEMES,
   OPTIONS_FONTS,
+  OPTIONS_PROMPTS,
   OPTIONS_CURSORS,
 } from '../common/settings.js';
 
@@ -21,7 +22,7 @@ registerSettingsPage((props) => {
   return (
     <Page>
       <Section
-        title="Appearance"
+        title="Configuration"
       >
         <TextInput
           label="Username (will appear as user@host)"
@@ -32,6 +33,22 @@ registerSettingsPage((props) => {
         {isLongUsername &&
           <Text italic>Warning: usernames longer than 8 characters may cause other text to become clipped.</Text>}
 
+        <Select
+          label="Prompt ​ 🆕✨" // This line intentionally contains ZWSP unicode characters for spacing.
+          settingsKey="prompt"
+          options={OPTIONS_PROMPTS}
+        />
+
+        <Select
+          label="Cursor"
+          settingsKey="cursor"
+          options={OPTIONS_CURSORS}
+        />
+      </Section>
+
+      <Section
+        title="Appearance"
+      >
         <Select
           label="Font"
           settingsKey="font"
@@ -50,12 +67,6 @@ registerSettingsPage((props) => {
                 icon={`https://terminal.watch/settings/theme__${option.value}.png`}
               />
           }
-        />
-
-        <Select
-          label="Cursor ​ 🆕✨" // This line intentionally contains ZWSP unicode characters for spacing.
-          settingsKey="cursor"
-          options={OPTIONS_CURSORS}
         />
       </Section>
 

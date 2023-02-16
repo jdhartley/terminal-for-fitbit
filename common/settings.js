@@ -34,6 +34,12 @@ export const OPTIONS_FONTS = [
     { name: 'Nova Mono', value: 'NovaMono_24' },
 ];
 
+export const OPTIONS_PROMPTS = [
+    { name: 'bash ($)', value: '$' },
+    { name: 'csh / zsh (%)', value: '%' },
+    { name: 'superuser (#)', value: '#' },
+];
+
 export const OPTIONS_CURSORS = [
     { name: 'None (disable cursor blinking)', value: 'none' },
     { name: 'Full block', value: '█' },
@@ -56,6 +62,7 @@ export const getDefaultSettings = ({ hasElevationGain = false } = {}) => {
         username: 'user',
         font: { values: [OPTIONS_FONTS[0]], selected: [0] },
         theme: { values: [OPTIONS_THEMES[0]], selected: [0] },
+        prompt: { values: [OPTIONS_PROMPTS[0]], selected: [0] },
         cursor: { values: [OPTIONS_CURSORS[0]], selected: [0] },
         datalines: defaultDatalines.map(getDatalineObjectByValue),
     };

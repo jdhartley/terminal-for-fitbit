@@ -47,6 +47,7 @@ let updatePromptLine;
 
 onSettingsChange((settings) => {
     const font = settings.font.values[0].value;
+    const prompt = settings.prompt.values[0].value;
     const cursor = settings.cursor.values[0].value;
 
     function text(id) {
@@ -67,12 +68,12 @@ onSettingsChange((settings) => {
     const bottomLabel = text('BOTTOM');
 
     const username = settings.username || 'user';
-    const command = `${username}@${host}:~ $`;
+    const command = `${username}@${host}:~ ${prompt}`;
 
     topLabel.text = `${command} now`;
     bottomLabel.text = `${command} `;
 
-    // Blinking Prompt
+    // Blinking Cursor
     const blinker = document.getElementById('BLINKER');
     const blinkerLabel = new FitFont({ id: blinker, font: 'Source_Code_Pro_22' });
     blinker.x = 5 + bottomLabel.width;
