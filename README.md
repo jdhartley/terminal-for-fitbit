@@ -22,6 +22,9 @@ _Versa Lite supports distance instead of elevation gain._
 
 ## Changelog
 
+### Terminal 3.0.0 – 2024-10-02
+- Add support for Fitbit Sense and Versa 4
+
 ### Terminal 2.4.0 - 2023-02-15
 - Add a new data line: Time with seconds
 - Add a new "Prompt" option to settings
