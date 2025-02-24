@@ -12,7 +12,8 @@
       "access_user_profile"
     ],
     "buildTargets": [
-      "hera"
+      "hera",
+      "rhea"
     ],
     "i18n": {
       "en": {
