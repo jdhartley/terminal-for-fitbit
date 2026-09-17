@@ -22,6 +22,15 @@ _Versa Lite supports distance instead of elevation gain._
 
 ## Changelog
 
+### Terminal 2.5.0 - 2026-09-17
+
+- Add a new data line: Step count with hourly (feature #20)
+    - Show steps taken this hour alongside your daily step count
+    - Hourly steps update every minute, excluding the current minute
+    - Show `+` when hourly data is incomplete, or `--` when unavailable
+- Fix: Reset label colors after a permissions error
+- Misc: Remove outdated “new” markers from settings
+
 ### Terminal 2.4.0 - 2023-02-15
 - Add a new data line: Time with seconds
 - Add a new "Prompt" option to settings
