@@ -34,7 +34,7 @@ registerSettingsPage((props) => {
           <Text italic>Warning: usernames longer than 8 characters may cause other text to become clipped.</Text>}
 
         <Select
-          label="Prompt ​ 🆕✨" // This line intentionally contains ZWSP unicode characters for spacing.
+          label="Prompt"
           settingsKey="prompt"
           options={OPTIONS_PROMPTS}
         />
