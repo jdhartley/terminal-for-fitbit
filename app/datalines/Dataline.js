@@ -24,6 +24,10 @@ export default function Dataline({ name, updateValue, start, stop, checkPermissi
             this.theme = theme;
 
             this.labelRef.text = `[${name}]`;
+            this.labelRef.root.class = this.labelRef.root.class
+                .split(/\s+/)
+                .filter(className => className.indexOf('color__') !== 0)
+                .join(' ');
             swapClass(this.labelRef.root, 'theme', theme);
             swapClass(this.valueRef.root, 'theme', theme);
 
