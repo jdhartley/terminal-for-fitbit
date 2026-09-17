@@ -4,6 +4,7 @@ const DATA_LINE_MAP = {
     DATE: 'Date',
     BATT: 'Battery',
     STEP: 'Step count',
+    STEPHOURLY: 'Step count with hourly',
     LVLS: 'Elevation gain',
     DIST: 'Distance',
     HRRT: 'Heart rate',
