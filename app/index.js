@@ -13,7 +13,7 @@ import { hasElevationGain } from './config';
 import timeFactory from './datalines/time';
 import DATE from './datalines/date';
 import BATT from './datalines/battery';
-import STEP from './datalines/steps';
+import stepsFactory from './datalines/steps';
 import DIST from './datalines/distance';
 import LVLS from './datalines/levels';
 import HRRT from './datalines/heartrate';
@@ -40,7 +40,9 @@ const host = String(device.modelName)
 
 const TIME = timeFactory({ showSeconds: false });
 const TIMESECS = timeFactory({ showSeconds: true });
-const allDatalines = { TIME, TIMESECS, DATE, BATT, STEP, DIST, LVLS, HRRT, CALS, AZMS };
+const STEP = stepsFactory();
+const STEPHOURLY = stepsFactory({ showHourly: true });
+const allDatalines = { TIME, TIMESECS, DATE, BATT, STEP, STEPHOURLY, DIST, LVLS, HRRT, CALS, AZMS };
 
 let updatePromptLine;
 

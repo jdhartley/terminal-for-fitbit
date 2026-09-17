@@ -29,7 +29,7 @@ export default function Dataline({ name, updateValue, start, stop, checkPermissi
 
             if (typeof this.checkPermissions === 'function' && !this.checkPermissions()) {
                 this.valueRef.text = 'no permissions!';
-                swapClass(this.LabelRef.root, 'color', 'red');
+                swapClass(this.labelRef.root, 'color', 'red');
                 swapClass(this.valueRef.root, 'color', 'red');
                 return;
             }
